@@ -98,7 +98,8 @@
   </script>
 </head>
 
-<body class="font-sans antialiased text-stone-900 bg-[#Fdfdfc] selection:bg-lime-400 selection:text-black relative">
+<body
+  class="font-sans antialiased text-stone-900 bg-[#Fdfdfc] selection:bg-lime-400 selection:text-black relative overflow-x-hidden">
 
   <!-- NOISE OVERLAY -->
   <div class="noise-overlay"></div>
@@ -151,7 +152,8 @@
           Next-Gen Corporate Gear
         </div>
 
-        <h1 class="text-7xl lg:text-[7rem] leading-[0.8] tracking-tighter text-stone-900 uppercase font-black">
+        <h1
+          class="text-5xl lg:text-[7rem] leading-[0.9] lg:leading-[0.8] tracking-tighter text-stone-900 uppercase font-black">
           Носи Свой<br />
           <span
             class="font-serif italic font-thin text-teal-800 ml-4 lg:ml-8 transform translate-x-4 lg:translate-x-12 inline-block">Бренд</span><br />
@@ -178,16 +180,16 @@
 
         <!-- Metric Strip -->
         <div
-          class="absolute -bottom-32 lg:bottom-auto lg:top-[120%] flex gap-16 backdrop-blur-sm p-6 rounded-3xl border border-stone-200/50">
+          class="relative mt-12 lg:mt-0 lg:absolute lg:-bottom-32 lg:bottom-auto lg:top-[120%] flex flex-col lg:flex-row gap-8 lg:gap-16 backdrop-blur-sm p-6 rounded-3xl border border-stone-200/50 bg-white/50 lg:bg-transparent">
           <div>
             <div class="text-4xl font-black text-stone-900">12k+</div>
             <div class="text-xs uppercase tracking-widest text-stone-500 font-bold mt-1">Боксов собрано</div>
           </div>
-          <div class="border-l border-stone-200/50 pl-16">
+          <div class="border-l border-stone-200 pl-4 lg:pl-16">
             <div class="text-4xl font-black text-stone-900">Казань</div>
             <div class="text-xs uppercase tracking-widest text-stone-500 font-bold mt-1">Производство</div>
           </div>
-          <div class="border-l border-stone-200/50 pl-16">
+          <div class="border-l border-stone-200 pl-4 lg:pl-16">
             <div class="text-4xl font-black text-stone-900">2-4 дня</div>
             <div class="text-xs uppercase tracking-widest text-stone-500 font-bold mt-1">Доставка по РФ</div>
           </div>
@@ -245,7 +247,7 @@
     </div>
     <div class="max-w-[90rem] mx-auto">
       <h2
-        class="text-[5rem] lg:text-[8rem] font-black mb-20 text-stone-900 leading-[0.8] tracking-tighter opacity-10 uppercase">
+        class="text-6xl lg:text-[8rem] font-black mb-20 text-stone-900 leading-[0.8] tracking-tighter opacity-10 uppercase">
         Catalog
       </h2>
       <div id="boxes-grid" class="grid md:grid-cols-3 gap-8 auto-rows-[minmax(500px,auto)] relative z-10 -mt-32">
@@ -706,11 +708,11 @@
       let wrapper = totalContainer.querySelector('.reset-btn-wrapper');
       if (!wrapper) {
         wrapper = document.createElement('div');
-        wrapper.className = 'reset-btn-wrapper absolute bottom-2 right-10';
+        wrapper.className = 'reset-btn-wrapper absolute -bottom-6 right-0 lg:bottom-2 lg:right-10 w-full text-right pr-10 lg:pr-0';
         totalContainer.appendChild(wrapper);
       }
       wrapper.innerHTML = Object.keys(cart).length > 0
-        ? `<button onclick="resetCalculator()" class="text-xs text-stone-500 hover:text-white underline ml-2 transition">Сбросить</button>`
+        ? `<button onclick="resetCalculator()" class="text-xs text-stone-400 hover:text-stone-600 lg:text-stone-500 lg:hover:text-white underline ml-2 transition">Сбросить</button>`
         : '';
 
       const stickyFooter = document.getElementById('sticky-footer');
