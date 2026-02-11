@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natural Advance - Корпоративный Мерч 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,900&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* 2026 TRENDS: NOISE & GRAIN */
+    .noise-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 50;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      mix-blend-mode: overlay;
+    }
+
+    .animate-marquee {
+      display: flex;
+      animation: marquee 25s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* FLUID ANIMATIONS */
+    @keyframes blob {
+      0% {
+        transform: translate(0px, 0px) scale(1);
+      }
+
+      33% {
+        transform: translate(30px, -50px) scale(1.1);
+      }
+
+      66% {
+        transform: translate(-20px, 20px) scale(0.9);
+      }
+
+      100% {
+        transform: translate(0px, 0px) scale(1);
+      }
+    }
+
+    .animate-blob {
+      animation: blob 7s infinite;
+    }
+
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+
+    .animation-delay-4000 {
+      animation-delay: 4s;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            'bounce-slow': 'bounce 3s infinite',
+            'blob': 'blob 7s infinite',
+          },
+          colors: {
+            lime: {
+              400: '#a3e635', // Electric Lime for 2026 pop
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="font-sans antialiased text-stone-900 bg-[#Fdfdfc] selection:bg-lime-400 selection:text-black relative">
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise-overlay"></div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 py-6 mix-blend-difference text-white/90">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div class="text-2xl font-bold tracking-tighter flex items-center gap-2 z-50">
+        <span class="mix-blend-difference">NATURAL ADVANCE</span>
+      </div>
+
+      <div
+        class="hidden lg:flex items-center gap-8 bg-stone-900/5 backdrop-blur-md px-8 py-3 rounded-full border border-white/10 shadow-sm text-stone-900">
+        <a href="#boxes" class="text-sm font-bold hover:text-teal-700 transition">Каталог</a>
+        <a href="#calculator" class="text-sm font-bold hover:text-teal-700 transition">Конструктор</a>
+        <a href="#process" class="text-sm font-bold hover:text-teal-700 transition">Этапы</a>
+        <a href="#quality" class="text-sm font-bold hover:text-teal-700 transition">Качество</a>
+      </div>
+
+      <button id="mobile-menu-btn" class="lg:hidden z-50 p-2 bg-white rounded-lg shadow-sm text-black">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <!-- Animated Blobs Background -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+      <div
+        class="absolute top-[-10%] left-[20%] w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob">
+      </div>
+      <div
+        class="absolute top-[-10%] right-[20%] w-96 h-96 bg-teal-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000">
+      </div>
+      <div
+        class="absolute -bottom-32 left-[20%] w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000">
+      </div>
+    </div>
+
+    <div class="max-w-[90rem] mx-auto px-6 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+
+      <div class="lg:col-span-7 space-y-8 relative">
+        <div
+          class="inline-flex items-center gap-3 px-5 py-2.5 bg-white/40 backdrop-blur-xl border border-white/50 rounded-full text-xs font-black uppercase tracking-widest shadow-lg">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-lime-500"></span>
+          </span>
+          Next-Gen Corporate Gear
+        </div>
+
+        <h1 class="text-7xl lg:text-[7rem] leading-[0.8] tracking-tighter text-stone-900 uppercase font-black">
+          Носи Свой<br />
+          <span
+            class="font-serif italic font-thin text-teal-800 ml-4 lg:ml-8 transform translate-x-4 lg:translate-x-12 inline-block">Бренд</span><br />
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-stone-900 to-stone-500">c&nbsp;Гордостью.</span>
+        </h1>
+
+        <p class="text-xl lg:text-2xl text-stone-600 max-w-xl leading-relaxed font-medium">
+          Превращаем ценности компании в тактильные ощущения. Вещи, которые сотрудники не захотят снимать после работы.
+          <br class="hidden lg:block">От дизайна до дропа —
+          <strong>3 дня</strong>.
+        </p>
+
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a href="#boxes"
+            class="relative px-12 py-6 bg-stone-900 text-white rounded-3xl font-bold text-lg overflow-hidden group">
+            <span
+              class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-lime-400 to-teal-400 opacity-0 group-hover:opacity-100 transition duration-500"></span>
+            <span class="relative flex items-center gap-3 z-10 group-hover:text-stone-900 transition">
+              Смотреть каталог <i data-lucide="arrow-right" class="group-hover:translate-x-2 transition-transform"></i>
+            </span>
+          </a>
+        </div>
+
+        <!-- Metric Strip -->
+        <div
+          class="absolute -bottom-32 lg:bottom-auto lg:top-[120%] flex gap-16 backdrop-blur-sm p-6 rounded-3xl border border-stone-200/50">
+          <div>
+            <div class="text-4xl font-black text-stone-900">12k+</div>
+            <div class="text-xs uppercase tracking-widest text-stone-500 font-bold mt-1">Боксов собрано</div>
+          </div>
+          <div class="border-l border-stone-200/50 pl-16">
+            <div class="text-4xl font-black text-stone-900">Казань</div>
+            <div class="text-xs uppercase tracking-widest text-stone-500 font-bold mt-1">Производство</div>
+          </div>
+          <div class="border-l border-stone-200/50 pl-16">
+            <div class="text-4xl font-black text-stone-900">2-4 дня</div>
+            <div class="text-xs uppercase tracking-widest text-stone-500 font-bold mt-1">Доставка по РФ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 relative group mt-20 lg:mt-0">
+        <div
+          class="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-[1px] border-stone-900/10 transition-transform duration-700 hover:scale-[1.02] bg-white">
+          <video autoplay loop muted playsinline
+            class="object-cover w-full h-full scale-110 group-hover:scale-100 transition duration-[2s] ease-out">
+            <source src="video/1.mp4" type="video/mp4">
+          </video>
+
+          <!-- Glassmorphism Card -->
+          <div
+            class="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-3xl text-white shadow-2xl overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-lime-400/20 to-teal-400/20 opacity-0 group-hover:opacity-100 transition duration-500">
+            </div>
+            <div class="relative z-10 flex justify-between items-end">
+              <div>
+                <div class="text-xs font-bold uppercase tracking-widest mb-1 opacity-70">Bestseller</div>
+                <div class="text-3xl font-serif italic">Pro Creator</div>
+              </div>
+              <div class="text-2xl font-black">6 861 ₽</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS STRIP -->
+  <div id="clients" class="border-y border-stone-200 bg-white py-12 overflow-hidden">
+    <div class="relative flex overflow-x-hidden group">
+      <div class="flex gap-24 animate-marquee whitespace-nowrap opacity-30 hover:opacity-100 transition duration-500">
+        <span class="text-5xl font-black font-serif">GAZPROM</span>
+        <span class="text-5xl font-black font-sans">SBER</span>
+        <span class="text-5xl font-black font-mono">YANDEX</span>
+        <span class="text-5xl font-black font-serif">LUKOIL</span>
+        <span class="text-5xl font-black font-sans">TRANSNEFT</span>
+        <span class="text-5xl font-black font-serif">ROSATOM</span>
+        <span class="text-5xl font-black font-sans">TINKOFF</span>
+        <span class="text-5xl font-black font-serif">GAZPROM</span>
+        <span class="text-5xl font-black font-sans">SBER</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOXES CATALOG -->
+  <section id="boxes" class="py-32 px-6 bg-[#F5F5F4] relative">
+    <div
+      class="absolute top-0 right-0 w-[500px] h-[500px] bg-teal-200/30 rounded-full blur-[120px] mix-blend-multiply pointer-events-none">
+    </div>
+    <div class="max-w-[90rem] mx-auto">
+      <h2
+        class="text-[5rem] lg:text-[8rem] font-black mb-20 text-stone-900 leading-[0.8] tracking-tighter opacity-10 uppercase">
+        Catalog
+      </h2>
+      <div id="boxes-grid" class="grid md:grid-cols-3 gap-8 auto-rows-[minmax(500px,auto)] relative z-10 -mt-32">
+        <!-- Content injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR SECTION -->
+  <section id="calculator" class="py-32 px-6 relative overflow-hidden bg-white">
+    <!-- Content remains mostly same, just updating container styles via JS or keeping structure -->
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="bg-stone-50 rounded-[3rem] p-8 lg:p-16 shadow-none border border-stone-100 relative overflow-hidden">
+
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-4 relative z-10">
+          <div>
+            <h3 class="text-5xl font-black mb-4 tracking-tighter">Конструктор</h3>
+            <p class="text-stone-500 text-xl font-medium">Соберите свой сет. Цены — live.</p>
+          </div>
+          <div class="bg-black text-lime-400 px-10 py-6 rounded-[2rem] text-right min-w-[280px]">
+            <div class="text-xs opacity-60 uppercase tracking-widest font-bold mb-2 text-white">Итого / шт</div>
+            <div class="text-4xl font-mono font-black tracking-tight"><span id="total-price-desktop">0</span> ₽</div>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16 relative z-10">
+          <div id="pricing-clothing">
+            <h4 class="font-bold text-2xl mb-8 border-b-2 border-stone-200 pb-4">01. Основа</h4>
+            <div id="clothing-list" class="space-y-4"></div>
+          </div>
+          <div id="pricing-accessories">
+            <h4 class="font-bold text-2xl mb-8 border-b-2 border-stone-200 pb-4">02. Наполнение</h4>
+            <div id="accessories-list" class="grid sm:grid-cols-2 gap-4"></div>
+          </div>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-stone-200 flex flex-col sm:flex-row gap-6 justify-end items-center">
+          <button onclick="openContactModal()"
+            class="px-12 py-6 rounded-3xl bg-lime-400 text-stone-900 font-extrabold text-xl hover:bg-lime-300 transition w-full sm:w-auto flex items-center justify-center gap-3">
+            Заказать расчет <i data-lucide="arrow-right" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section id="process"
+    class="py-32 px-6 bg-[#0a0a0a] text-white rounded-t-[4rem] mx-2 lg:mx-4 mt-12 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://grain-texture-url')] opacity-10 mix-blend-overlay"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="text-center mb-24">
+        <h2 class="text-5xl lg:text-7xl font-black mb-6 tracking-tighter">От заявки до <span
+            class="text-lime-400 font-serif italic">восторга</span></h2>
+      </div>
+
+      <div
+        class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 md:grid md:grid-cols-4 md:gap-12 md:overflow-visible md:pb-0 relative scrollbar-hide">
+        <div
+          class="hidden md:block absolute top-16 left-0 w-full h-[1px] bg-gradient-to-r from-stone-800 via-stone-700 to-stone-800 -z-10">
+        </div>
+
+        <div class="min-w-[85vw] md:min-w-0 snap-center shrink-0 relative flex flex-col items-center text-center group">
+          <div
+            class="w-32 h-32 rounded-full bg-[#111] border border-stone-800 flex items-center justify-center mb-8 group-hover:scale-110 transition duration-500 shadow-2xl relative">
+            <div
+              class="absolute inset-0 rounded-full bg-lime-400/20 blur-xl opacity-0 group-hover:opacity-100 transition">
+            </div>
+            <i data-lucide="message-square" class="text-white w-10 h-10"></i>
+          </div>
+          <h4 class="text-2xl font-bold mb-3">Заявка</h4>
+          <p class="text-stone-500 text-sm leading-relaxed max-w-[200px]">Вы оставляете контакт или собираете бокс в
+            конструкторе.</p>
+        </div>
+        <div class="min-w-[85vw] md:min-w-0 snap-center shrink-0 relative flex flex-col items-center text-center group">
+          <div
+            class="w-32 h-32 rounded-full bg-[#111] border border-stone-800 flex items-center justify-center mb-8 group-hover:scale-110 transition duration-500 shadow-2xl relative">
+            <div
+              class="absolute inset-0 rounded-full bg-lime-400/20 blur-xl opacity-0 group-hover:opacity-100 transition">
+            </div>
+            <i data-lucide="pen-tool" class="text-white w-10 h-10"></i>
+          </div>
+          <h4 class="text-2xl font-bold mb-3">Дизайн</h4>
+          <p class="text-stone-500 text-sm leading-relaxed max-w-[200px]">Визуализация с вашим логотипом за 24 часа.
+            <span class="text-lime-400">Бесплатно.</span>
+          </p>
+        </div>
+        <div class="min-w-[85vw] md:min-w-0 snap-center shrink-0 relative flex flex-col items-center text-center group">
+          <div
+            class="w-32 h-32 rounded-full bg-[#111] border border-stone-800 flex items-center justify-center mb-8 group-hover:scale-110 transition duration-500 shadow-2xl relative">
+            <div
+              class="absolute inset-0 rounded-full bg-lime-400/20 blur-xl opacity-0 group-hover:opacity-100 transition">
+            </div>
+            <i data-lucide="truck" class="text-white w-10 h-10"></i>
+          </div>
+          <h4 class="text-2xl font-bold mb-3">Образец</h4>
+          <p class="text-stone-500 text-sm leading-relaxed max-w-[200px]">Курьер привезет сигнальный образец к вам в
+            офис.</p>
+        </div>
+        <div class="min-w-[85vw] md:min-w-0 snap-center shrink-0 relative flex flex-col items-center text-center group">
+          <div
+            class="w-32 h-32 rounded-full bg-[#111] border border-stone-800 flex items-center justify-center mb-8 group-hover:scale-110 transition duration-500 shadow-2xl relative">
+            <div
+              class="absolute inset-0 rounded-full bg-lime-400/20 blur-xl opacity-0 group-hover:opacity-100 transition">
+            </div>
+            <i data-lucide="award" class="text-lime-400 w-10 h-10"></i>
+          </div>
+          <h4 class="text-2xl font-bold mb-3">Партия</h4>
+          <p class="text-stone-500 text-sm leading-relaxed max-w-[200px]">Сдаем тираж точно в срок. Гарантия качества.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUALITY SECTION -->
+  <section id="quality" class="py-32 px-6 relative z-20 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <div class="order-2 lg:order-1">
+          <div class="text-lime-600 font-bold tracking-widest uppercase mb-6 text-sm">Анатомия качества</div>
+          <h2 class="text-6xl font-black mb-8 leading-[0.9]">Вещи, <span
+              class="font-serif italic font-normal text-6xl">достойные</span><br>носить ваш лого.</h2>
+
+          <div class="space-y-12 mt-12">
+            <div class="flex gap-6 group">
+              <div
+                class="w-16 h-16 rounded-2xl bg-stone-100 flex items-center justify-center shrink-0 group-hover:bg-lime-400 transition duration-500">
+                <i data-lucide="layout-grid" class="text-stone-900 w-8 h-8"></i>
+              </div>
+              <div>
+                <h4 class="font-black text-2xl mb-2">Пенье Компакт</h4>
+                <p class="text-stone-500 text-lg leading-relaxed">Ткань уровня мировых брендов. Не скатывается. Не
+                  выцветает. Дышит.</p>
+              </div>
+            </div>
+            <div class="flex gap-6 group">
+              <div
+                class="w-16 h-16 rounded-2xl bg-stone-100 flex items-center justify-center shrink-0 group-hover:bg-lime-400 transition duration-500">
+                <i data-lucide="shield-check" class="text-stone-900 w-8 h-8"></i>
+              </div>
+              <div>
+                <h4 class="font-black text-2xl mb-2">Вечное нанесение</h4>
+                <p class="text-stone-500 text-lg leading-relaxed">Шелкография и Вышивка, которые переживут саму ткань.
+                  500+ стирок
+                  без трещин.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative h-[800px] rounded-[3rem] overflow-hidden group shadow-2xl order-1 lg:order-2">
+          <img src="img/4.webp" alt="Fleece Quality"
+            class="w-full h-full object-cover group-hover:scale-110 transition duration-[2s] ease-in-out" />
+          <div class="absolute inset-0 bg-black/10"></div>
+
+          <div class="w-6 h-6 bg-lime-400 rounded-full relative border-4 border-white shadow-lg"></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-32 px-6 bg-white border-t border-stone-100">
+    <div class="max-w-[90rem] mx-auto">
+      <h2 class="text-4xl font-black mb-16 text-center tracking-tighter">НАМ ДОВЕРЯЮТ</h2>
+      <div id="reviews-grid" class="grid md:grid-cols-3 gap-8">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-32 px-6 bg-stone-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-black mb-12 text-center">FAQ</h2>
+      <div id="faq-list" class="space-y-6">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="py-32 px-6 bg-[#0a0a0a] text-white rounded-t-[5rem] -mt-12 relative overflow-hidden z-30">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-lime-500/10 rounded-full blur-[150px]"></div>
+    <div class="max-w-5xl mx-auto relative z-10 text-center">
+      <h2 class="text-6xl lg:text-8xl font-black mb-8 tracking-tighter">GO <span class="text-lime-400">PRO.</span></h2>
+      <p class="text-stone-400 text-2xl mb-16 max-w-2xl mx-auto font-light">
+        Оставьте заявку. Мы пришлем презентацию и расчет уже сегодня.
+      </p>
+
+      <div class="text-center">
+        <button onclick="openContactModal()"
+          class="bg-lime-400 text-black font-black text-2xl py-6 px-12 rounded-3xl hover:bg-lime-300 transition inline-flex items-center gap-4 transform hover:scale-105 duration-300 shadow-[0_0_40px_rgba(163,230,53,0.3)]">
+          Получить оффер <i data-lucide="send" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-stone-900 text-stone-400 py-12 px-6 border-t border-stone-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
+        NATURAL ADVANCE
+      </div>
+      <div class="text-sm">© 2026. Разработано для людей, а не для склада.</div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition">Telegram</a>
+        <a href="#" class="hover:text-white transition">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="box-modal" class="fixed inset-0 z-[60] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog"
+    aria-modal="true">
+    <div class="flex items-center justify-center min-h-screen p-4 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm transition-opacity" aria-hidden="true"
+        onclick="closeModal()"></div>
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+      <div
+        class="relative inline-block align-bottom bg-white rounded-3xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl w-full">
+        <button onclick="closeModal()"
+          class="absolute top-4 right-4 p-2 bg-stone-100 rounded-full hover:bg-stone-200 transition z-10">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT MODAL -->
+  <div id="contact-modal" class="fixed inset-0 z-[70] hidden overflow-y-auto" aria-labelledby="modal-title"
+    role="dialog" aria-modal="true">
+    <div class="flex items-center justify-center min-h-screen p-4 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 bg-stone-900/80 backdrop-blur-sm transition-opacity" aria-hidden="true"
+        onclick="closeContactModal()"></div>
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+      <div
+        class="relative inline-block align-bottom bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full">
+        <button onclick="closeContactModal()"
+          class="absolute top-4 right-4 p-2 bg-stone-100 rounded-full hover:bg-stone-200 transition z-10">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+        <div class="p-8 sm:p-12">
+          <div class="text-center mb-8">
+            <h3 class="text-3xl font-black mb-2">Оставьте заявку</h3>
+            <p class="text-stone-500">Мы свяжемся с вами в течение 15 минут</p>
+          </div>
+          <form class="space-y-4"
+            onsubmit="event.preventDefault(); closeContactModal(); alert('Спасибо! Мы скоро свяжемся с вами.');">
+            <div>
+              <input type="text" placeholder="Ваше имя" required
+                class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-4 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition" />
+            </div>
+            <div>
+              <input type="tel" placeholder="Телефон" required
+                class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-4 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition" />
+            </div>
+            <button type="submit"
+              class="w-full bg-lime-400 text-stone-900 font-bold text-lg py-4 rounded-xl hover:bg-lime-300 transition shadow-lg hover:shadow-lime-400/20">
+              Отправить
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- DATA ---
+    const PRICING = {
+      main: {
+        hoodie: { name: 'Худи Premium', price: 3300, image: 'img/ART_0831.webp' },
+        tshirt: { name: 'Футболка', price: 1400, image: 'img/ART_0831.webp' },
+        polo: { name: 'Поло', price: 1400, image: 'img/ART_0802.webp' },
+        fleece: { name: 'Олимпийка флис', price: 3200, image: 'img/ART_0779.webp' }
+      },
+      accessories: {
+        pen: { name: 'Ручка Soft-touch', price: 88 },
+        thermo: { name: 'Термокружка', price: 993 },
+        mug: { name: 'Кружка керамика', price: 456 },
+        notebook: { name: 'Блокнот', price: 1080 },
+        shopper: { name: 'Шоппер', price: 924 },
+        usb: { name: 'Флешка', price: 720 },
+        keychain: { name: 'Брелок', price: 420 }
+      }
+    };
+
+    const BOXES = [
+      {
+        id: 'small',
+        title: "Start Pack",
+        subtitle: "Малый бокс",
+        price: 4700,
+        oldPrice: 5200,
+        image: "img/1.webp",
+        description: "Базовый набор для онбординга. Стильное поло и худи премиум качества.",
+        composition: [
+          { name: "Поло", desc: "Хлопок/Лайкра, классический крой" },
+          { name: "Худи Premium", desc: "Флис/Хлопок, оверсайз крой" }
+        ],
+        tags: ["Onboarding", "Конференции"],
+        span: "col-span-1 md:col-span-1"
+      },
+      {
+        id: 'medium',
+        title: "Pro Creator",
+        subtitle: "Средний бокс",
+        price: 6861,
+        oldPrice: 7500,
+        image: "img/2.webp",
+        description: "Золотая середина. Набор для продуктивной работы в офисе и дома.",
+        composition: [
+          { name: "Худи Premium", desc: "Плотность 340гр/м" },
+          { name: "Футболка", desc: "Хлопок пенье, держит форму" },
+          { name: "Термокружка", desc: "Держит тепло 8 часов" },
+          { name: "Ручка", desc: "Soft-touch покрытие" },
+          { name: "Блокнот", desc: "Твердый переплет, 96 листов" }
+        ],
+        isPopular: true,
+        tags: ["Хит продаж", "Loyalty"],
+        span: "col-span-1 md:col-span-1"
+      },
+      {
+        id: 'large',
+        title: "Ambassador",
+        subtitle: "Большой бокс",
+        price: 8261,
+        oldPrice: 9100,
+        image: "img/3.webp",
+        description: "Максимальная комплектация. Полноценный гардероб и аксессуары для амбассадоров бренда.",
+        composition: [
+          { name: "Худи Premium", desc: "С двойным капюшоном" },
+          { name: "Поло", desc: "Классический крой" },
+          { name: "Футболка", desc: "Базовая, 100% хлопок" },
+          { name: "Термокружка", desc: "Держит тепло 8 часов" },
+          { name: "Блокнот", desc: "Твердый переплет" },
+          { name: "Ручка", desc: "Soft-touch покрытие" }
+        ],
+        tags: ["VIP", "Подарки партнерам"],
+        span: "col-span-1 md:col-span-1"
+      }
+    ];
+
+    const REVIEWS = [
+      { name: "Александра М.", role: "HRD, TechCorp", text: "Искали мерч, который не стыдно подарить топ-менеджменту. Флис от Natural Advance — это уровень Patagonia. Сотрудники реально носят.", rating: 5 },
+      { name: "Дмитрий К.", role: "CEO, StartUp Hub", text: "Сроки горели перед конференцией. Ребята собрали 50 'Medium' боксов за 3 дня. Качество нанесения логотипа — моё почтение.", rating: 5 },
+      { name: "Елена В.", role: "Event Manager", text: "Наконец-то конструктор, где я сразу вижу цену. Никаких 'запросите прайс у менеджера'. Очень удобно для согласования бюджета.", rating: 5 }
+    ];
+
+    const FAQS = [
+      { q: "Какой минимальный тираж?", a: "Мы работаем с партиями от 10 штук. Это позволяет нам держать оптовые цены и контролировать качество каждого изделия." },
+      { q: "Можно ли изменить состав бокса?", a: "Да, конечно. Вы можете использовать наш конструктор выше или связаться с менеджером для полностью индивидуального наполнения." },
+      { q: "Делаете ли вы дизайн-макет?", a: "Да, при заказе партии мы разрабатываем визуализацию с вашим логотипом бесплатно. Вы увидите, как будет выглядеть мерч, до оплаты." },
+      { q: "Какие сроки производства?", a: "Стандартный срок — 5-7 рабочих дней. Если нужно 'вчера', у нас есть услуга экспресс-сборки за 3 дня." }
+    ];
+
+    // --- INIT & LOGIC ---
+
+    // 1. Boxes Renderer
+    const renderBoxes = () => {
+      const container = document.getElementById('boxes-grid');
+      container.innerHTML = BOXES.map(box => `
+            <div onclick="openModal('${box.id}')" class="group bg-white rounded-[2.5rem] overflow-hidden border transition hover:shadow-2xl hover:-translate-y-1 duration-500 flex flex-col relative cursor-pointer ${box.isPopular ? 'border-teal-500 ring-4 ring-teal-500/10 z-10' : 'border-stone-100 shadow-lg'} ${box.span}">
+                ${box.isPopular ? '<div class="absolute top-6 right-6 bg-teal-500 text-white text-xs font-bold px-3 py-1.5 rounded-full z-20 shadow-lg uppercase tracking-wider">Выбор HR</div>' : ''}
+                <div class="relative h-1/2 overflow-hidden">
+                    <div class="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/10 transition z-10"></div>
+                    <img src="${box.image}" alt="${box.title}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" />
+                    <div class="absolute bottom-4 left-4 flex gap-2 z-20">
+                        ${box.tags.map(tag => `<span class="px-3 py-1 bg-white/90 backdrop-blur rounded-lg text-[10px] font-bold uppercase tracking-wider">${tag}</span>`).join('')}
+                    </div>
+                </div>
+                <div class="p-8 flex-1 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-3xl font-bold leading-none mb-2">${box.title}</h3>
+                            <div class="text-stone-400 font-medium text-sm">${box.subtitle}</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xl font-bold">${box.price.toLocaleString()} ₽</div>
+                            <div class="text-sm text-stone-400 line-through">${box.oldPrice.toLocaleString()} ₽</div>
+                        </div>
+                    </div>
+                    <p class="text-stone-500 text-sm leading-relaxed my-4 flex-1">${box.description}</p>
+                    <div class="flex items-center justify-between pt-6 border-t border-stone-100 mt-auto">
+                        <div class="flex -space-x-2 overflow-hidden">
+                            ${box.composition.slice(0, 3).map((_, i) => `<div class="inline-block h-8 w-8 rounded-full ring-2 ring-white bg-stone-100 flex items-center justify-center text-[10px] font-bold text-stone-500">${i + 1}</div>`).join('')}
+                            ${box.composition.length > 3 ? `<div class="inline-block h-8 w-8 rounded-full ring-2 ring-white bg-stone-900 text-white flex items-center justify-center text-[10px] font-bold">+${box.composition.length - 3}</div>` : ''}
+                        </div>
+                        <button class="px-6 py-3 bg-stone-900 text-white rounded-xl font-bold text-sm hover:bg-teal-900 transition flex items-center gap-2 group-hover:gap-3 pointer-events-none">
+                            Смотреть <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    };
+
+    // 2. Calculator Logic
+    let cart = {};
+    const renderCalculator = () => {
+      // Clothing
+      document.getElementById('clothing-list').innerHTML = Object.entries(PRICING.main).map(([key, item]) => `
+                <div onclick="toggleItem('${key}', 'main', ${item.price})" class="flex items-center justify-between p-5 rounded-2xl border-2 cursor-pointer transition-all duration-300 group ${cart[key] ? 'border-lime-400 bg-lime-50/50 shadow-md scale-[1.02]' : 'border-stone-100 hover:border-lime-200 bg-white hover:shadow-lg'}">
+                    <div class="flex items-center gap-5">
+                        <div class="w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${cart[key] ? 'bg-lime-400 border-lime-400' : 'border-stone-200 bg-stone-50 group-hover:border-lime-300'}">
+                            ${cart[key] ? '<i data-lucide="check" class="text-stone-900 w-3 h-3"></i>' : ''}
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-stone-100 bg-cover bg-center" style="background-image: url(${item.image})"></div>
+                            <span class="font-bold text-lg transition ${cart[key] ? 'text-stone-900' : 'text-stone-700'}">${item.name}</span>
+                        </div>
+                    </div>
+                    <span class="font-bold text-stone-900 bg-white px-3 py-1 rounded-lg shadow-sm border border-stone-100">${item.price} ₽</span>
+                </div>
+            `).join('');
+
+      // Accessories
+      document.getElementById('accessories-list').innerHTML = Object.entries(PRICING.accessories).map(([key, item]) => `
+                <div onclick="toggleItem('${key}', 'acc', ${item.price})" class="flex items-center justify-between p-4 rounded-2xl border-2 cursor-pointer transition-all duration-200 ${cart[key] ? 'border-lime-400 bg-lime-50 shadow-md' : 'border-stone-100 hover:border-lime-200 bg-white hover:shadow-md'}">
+                    <div class="flex items-center gap-3">
+                        <div class="w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${cart[key] ? 'bg-lime-400 border-lime-400' : 'border-stone-200 bg-stone-50'}">
+                             ${cart[key] ? '<i data-lucide="check" class="text-stone-900 w-3 h-3"></i>' : ''}
+                        </div>
+                        <span class="font-bold text-sm ${cart[key] ? 'text-stone-900' : 'text-stone-700'}">${item.name}</span>
+                    </div>
+                    <div class="text-sm font-bold text-stone-500">${item.price} ₽</div>
+                </div>
+            `).join('');
+
+      if (window.lucide && window.lucide.createIcons) lucide.createIcons();
+      updateTotal();
+    };
+
+    const toggleItem = (key, category, price) => {
+      if (cart[key]) delete cart[key];
+      else cart[key] = { category, price };
+      renderCalculator();
+    };
+
+    const resetCalculator = () => {
+      cart = {};
+      renderCalculator();
+    };
+
+    const updateTotal = () => {
+      const sum = Object.values(cart).reduce((acc, item) => acc + item.price, 0);
+      document.getElementById('total-price-desktop').innerText = sum.toLocaleString();
+      document.getElementById('total-price-mobile').innerText = sum.toLocaleString();
+
+      // Reset Button Logic
+      const totalContainer = document.getElementById('total-price-desktop').parentElement.parentElement;
+      let wrapper = totalContainer.querySelector('.reset-btn-wrapper');
+      if (!wrapper) {
+        wrapper = document.createElement('div');
+        wrapper.className = 'reset-btn-wrapper absolute bottom-2 right-10';
+        totalContainer.appendChild(wrapper);
+      }
+      wrapper.innerHTML = Object.keys(cart).length > 0
+        ? `<button onclick="resetCalculator()" class="text-xs text-stone-500 hover:text-white underline ml-2 transition">Сбросить</button>`
+        : '';
+
+      const stickyFooter = document.getElementById('sticky-footer');
+      if (sum > 0) stickyFooter.style.transform = 'translateY(0)';
+      else stickyFooter.style.transform = 'translateY(200%)';
+    };
+
+    // 3. Reviews Renderer
+    const renderReviews = () => {
+      document.getElementById('reviews-grid').innerHTML = REVIEWS.map(review => `
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col">
+                    <div class="flex gap-1 mb-6">
+                        ${[...Array(review.rating)].map(() => `<i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>`).join('')}
+                    </div>
+                    <p class="text-stone-700 mb-8 italic leading-relaxed text-lg flex-1">"${review.text}"</p>
+                    <div class="flex items-center gap-4 border-t border-stone-100 pt-6 mt-auto">
+                        <div class="w-12 h-12 bg-gradient-to-br from-teal-100 to-teal-200 rounded-full flex items-center justify-center font-bold text-teal-900 text-lg shadow-inner">
+                            ${review.name[0]}
+                        </div>
+                        <div>
+                            <div class="font-bold text-stone-900 flex items-center gap-2">
+                                ${review.name}
+                                <i data-lucide="shield-check" class="w-4 h-4 text-teal-500"></i>
+                            </div>
+                            <div class="text-xs text-stone-500 font-medium uppercase tracking-wide">${review.role}</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+    };
+
+    // 4. FAQ Renderer
+    const renderFAQ = () => {
+      document.getElementById('faq-list').innerHTML = FAQS.map((faq, i) => `
+                <div class="border border-stone-200 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(${i})" class="w-full flex items-center justify-between p-6 text-left hover:bg-stone-50 transition">
+                        <span class="font-bold text-lg">${faq.q}</span>
+                        <i id="faq-icon-${i}" data-lucide="chevron-right" class="transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-${i}" class="overflow-hidden transition-all duration-300 max-h-0">
+                        <div class="p-6 pt-0 text-stone-500 leading-relaxed">${faq.a}</div>
+                    </div>
+                </div>
+            `).join('');
+    };
+
+    const toggleFaq = (index) => {
+      const content = document.getElementById(`faq-content-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+        icon.style.transform = 'rotate(0deg)';
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        icon.style.transform = 'rotate(90deg)';
+      }
+    };
+
+    // 5. Modal Logic
+    const openModal = (id) => {
+      const box = BOXES.find(b => b.id === id);
+      if (!box) return;
+
+      const modal = document.getElementById('box-modal');
+      const content = document.getElementById('modal-content');
+
+      content.innerHTML = `
+                <div class="relative h-64 sm:h-80">
+                    <img src="${box.image}" class="w-full h-full object-cover rounded-t-3xl" alt="${box.title}" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-stone-900/80 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <div class="text-sm opacity-80 mb-1">${box.subtitle}</div>
+                        <h2 class="text-3xl font-bold">${box.title}</h2>
+                    </div>
+                </div>
+                <div class="p-8">
+                     <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <span class="text-3xl font-bold text-stone-900">${box.price.toLocaleString()} ₽</span>
+                            <span class="text-stone-400 line-through ml-3">${box.oldPrice.toLocaleString()} ₽</span>
+                        </div>
+                        <div class="bg-teal-50 text-teal-800 px-3 py-1 rounded-lg text-xs font-bold uppercase">Тираж от 10 шт</div>
+                    </div>
+                    <p class="text-stone-600 mb-8">${box.description}</p>
+                    <div class="space-y-4 mb-8">
+                        <h4 class="font-bold text-stone-900 border-b pb-2">Состав набора:</h4>
+                        ${box.composition.map(item => `
+                            <div class="flex items-center gap-3">
+                                <div class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div>
+                                <div>
+                                    <div class="font-bold text-stone-800">${item.name}</div>
+                                    <div class="text-xs text-stone-500">${item.desc}</div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="grid grid-cols-1 gap-4">
+                        <button onclick="closeModal(); openContactModal()" class="py-4 rounded-xl bg-teal-900 text-white font-bold hover:bg-teal-800 transition">Оставить заявку</button>
+                    </div>
+                </div>
+            `;
+
+      modal.classList.remove('hidden');
+      if (window.lucide && window.lucide.createIcons) lucide.createIcons();
+    };
+
+    const closeModal = () => {
+      document.getElementById('box-modal').classList.add('hidden');
+    };
+
+    const openContactModal = () => {
+      document.getElementById('contact-modal').classList.remove('hidden');
+    };
+
+    const closeContactModal = () => {
+      document.getElementById('contact-modal').classList.add('hidden');
+    };
+
+    // 6. Navigation Logic
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('bg-white/90', 'backdrop-blur-xl', 'shadow-sm', 'py-3');
+        nav.classList.remove('py-6');
+      } else {
+        nav.classList.remove('bg-white/90', 'backdrop-blur-xl', 'shadow-sm', 'py-3');
+        nav.classList.add('py-6');
+      }
+    });
+
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      const menu = document.getElementById('mobile-menu');
+      if (menu.classList.contains('-translate-y-full')) {
+        menu.classList.remove('-translate-y-full');
+      } else {
+        menu.classList.add('-translate-y-full');
+      }
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.add('-translate-y-full');
+      });
+    });
+
+    // INIT
+    document.addEventListener('DOMContentLoaded', () => {
+      renderBoxes();
+      renderCalculator();
+      renderReviews();
+      renderFAQ();
+      if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+    });
+  </script>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu"
+    class="fixed inset-0 z-30 bg-white/95 backdrop-blur-xl transition-transform duration-300 -translate-y-full pt-24 px-6 flex flex-col gap-8">
+    <div class="flex flex-col gap-6 text-2xl font-bold text-stone-900">
+      <a href="#boxes" class="mobile-link">Каталог</a>
+      <a href="#calculator" class="mobile-link">Конструктор</a>
+      <a href="#process" class="mobile-link">Этапы</a>
+      <a href="#quality" class="mobile-link">Качество</a>
+    </div>
+    <div class="mt-auto mb-12">
+      <div class="text-stone-500 text-sm mb-4">Свяжитесь с нами:</div>
+      <div class="flex gap-4">
+        <a href="#" class="p-4 bg-stone-100 rounded-full"><i data-lucide="phone"></i></a>
+        <a href="#" class="p-4 bg-stone-100 rounded-full"><i data-lucide="send"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Footer -->
+  <div id="sticky-footer"
+    class="fixed bottom-6 left-6 right-6 bg-stone-900 text-white p-4 rounded-2xl shadow-2xl z-40 flex items-center justify-between transform translate-y-[200%] transition-transform duration-500 lg:hidden">
+    <div>
+      <div class="text-xs text-stone-400">Итого:</div>
+      <div class="font-bold text-xl"><span id="total-price-mobile">0</span> ₽</div>
+    </div>
+    <button onclick="openContactModal()" class="bg-lime-400 text-stone-900 px-6 py-2 rounded-xl font-bold text-sm">
+      Заказать
+    </button>
+  </div>
+</body>
+
+</html>
