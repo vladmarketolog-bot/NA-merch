@@ -164,7 +164,7 @@
         <p class="text-xl lg:text-2xl text-stone-600 max-w-xl leading-relaxed font-medium">
           Превращаем ценности компании в тактильные ощущения. Вещи, которые сотрудники не захотят снимать после работы.
           <br class="hidden lg:block">От дизайна до дропа —
-          <strong>3 дня</strong>.
+          <strong>9 дней</strong>.
         </p>
 
         <div class="flex flex-wrap gap-4 pt-4">
@@ -200,7 +200,7 @@
         <div
           class="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-[1px] border-stone-900/10 transition-transform duration-700 hover:scale-[1.02] bg-white">
           <img src="img/ART_0798.webp" alt="Corporate Merch Example"
-            class="object-cover w-full h-full scale-110 group-hover:scale-100 transition duration-[2s] ease-out">
+            class="object-cover w-full h-full scale-105 group-hover:scale-100 transition duration-[2s] ease-out">
 
           <!-- Glassmorphism Card -->
           <div
@@ -747,8 +747,8 @@
         </button>
         <div class="p-8 sm:p-12">
           <div class="text-center mb-8">
-            <h3 class="text-3xl font-black mb-2">Оставьте заявку</h3>
-            <p class="text-stone-500">Мы свяжемся с вами в течение 15 минут</p>
+            <h3 class="text-3xl font-black mb-2">Начнем работу?</h3>
+            <p class="text-stone-500">Свяжемся быстрее, чем остынет ваш кофе.</p>
           </div>
           <form class="space-y-4"
             onsubmit="event.preventDefault(); closeContactModal(); alert('Спасибо! Мы скоро свяжемся с вами.');">
@@ -759,6 +759,39 @@
             <div>
               <input type="tel" placeholder="Телефон" required
                 class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-4 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition" />
+            </div>
+            <div class="space-y-3">
+              <label class="text-xs font-bold uppercase tracking-widest text-stone-500">Где удобно ответить?</label>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="cursor-pointer group">
+                  <input type="radio" name="contact_method" value="Telegram" class="peer sr-only" checked>
+                  <div
+                    class="p-3 rounded-xl border border-stone-200 flex items-center justify-center gap-2 text-stone-600 font-bold text-sm hover:bg-stone-50 peer-checked:bg-[#229ED9] peer-checked:text-white peer-checked:border-[#229ED9] transition shadow-sm">
+                    <i data-lucide="send" class="w-4 h-4"></i> Telegram
+                  </div>
+                </label>
+                <label class="cursor-pointer group">
+                  <input type="radio" name="contact_method" value="WhatsApp" class="peer sr-only">
+                  <div
+                    class="p-3 rounded-xl border border-stone-200 flex items-center justify-center gap-2 text-stone-600 font-bold text-sm hover:bg-stone-50 peer-checked:bg-[#25D366] peer-checked:text-white peer-checked:border-[#25D366] transition shadow-sm">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
+                  </div>
+                </label>
+                <label class="cursor-pointer group">
+                  <input type="radio" name="contact_method" value="Phone" class="peer sr-only">
+                  <div
+                    class="p-3 rounded-xl border border-stone-200 flex items-center justify-center gap-2 text-stone-600 font-bold text-sm hover:bg-stone-50 peer-checked:bg-stone-900 peer-checked:text-white peer-checked:border-stone-900 transition shadow-sm">
+                    <i data-lucide="phone" class="w-4 h-4"></i> Звонок
+                  </div>
+                </label>
+                <label class="cursor-pointer group">
+                  <input type="radio" name="contact_method" value="Email" class="peer sr-only">
+                  <div
+                    class="p-3 rounded-xl border border-stone-200 flex items-center justify-center gap-2 text-stone-600 font-bold text-sm hover:bg-stone-50 peer-checked:bg-stone-900 peer-checked:text-white peer-checked:border-stone-900 transition shadow-sm">
+                    <i data-lucide="mail" class="w-4 h-4"></i> Email
+                  </div>
+                </label>
+              </div>
             </div>
             <button type="submit"
               class="w-full bg-lime-400 text-stone-900 font-bold text-lg py-4 rounded-xl hover:bg-lime-300 transition shadow-lg hover:shadow-lime-400/20">
@@ -774,10 +807,10 @@
     // --- DATA ---
     const PRICING = {
       main: {
-        hoodie: { name: 'Худи Premium', price: 3300, image: 'img/ART_0831.webp' },
+        hoodie: { name: 'Худи Premium', price: 3300, image: 'img/ART_0866.webp' },
         tshirt: { name: 'Футболка', price: 1400, image: 'img/ART_0831.webp' },
-        polo: { name: 'Поло', price: 1400, image: 'img/ART_0802.webp' },
-        fleece: { name: 'Олимпийка флис', price: 3200, image: 'img/ART_0779.webp' }
+        polo: { name: 'Поло', price: 1400, image: 'img/p1.webp' },
+        fleece: { name: 'Олимпийка флис', price: 3200, image: 'img/ART_0852.webp' }
       },
       accessories: {
         pen: { name: 'Ручка Soft-touch', price: 88 },

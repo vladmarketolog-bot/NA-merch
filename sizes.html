@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Advance - Укажите свой размер</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            mix-blend-mode: overlay;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lime: {
+                            400: '#a3e635',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="font-sans antialiased text-stone-900 bg-[#Fdfdfc] selection:bg-lime-400 selection:text-black relative min-h-screen flex items-center justify-center">
+
+    <div class="noise-overlay"></div>
+
+    <div class="max-w-2xl w-full mx-4 relative z-10">
+        <!-- Brand Header -->
+        <div class="text-center mb-12">
+            <div class="text-2xl font-black tracking-tighter mb-2">NATURAL ADVANCE</div>
+            <h1 class="text-4xl lg:text-5xl font-black tracking-tighter leading-tight">
+                ВАШ НОВЫЙ <span class="text-lime-500 font-serif italic text-5xl">МЕРЧ</span>
+            </h1>
+            <p class="text-stone-500 mt-4 text-lg">Пожалуйста, укажите свои параметры, чтобы мы пошили одежду, которая
+                сядет идеально.</p>
+        </div>
+
+        <!-- Form Card -->
+        <div class="bg-white rounded-[2.5rem] shadow-2xl p-8 lg:p-12 border border-stone-100 relative overflow-hidden">
+            <div
+                class="absolute top-0 right-0 w-[300px] h-[300px] bg-teal-200/20 rounded-full blur-[80px] mix-blend-multiply pointer-events-none">
+            </div>
+
+            <form id="sizeForm" class="space-y-8 relative z-10" onsubmit="submitSize(event)">
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold uppercase tracking-widest text-stone-500">Фамилия Имя</label>
+                        <input type="text" name="name" required placeholder="Иванов Иван"
+                            class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-4 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition font-medium">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold uppercase tracking-widest text-stone-500">Отдел /
+                            Департамент</label>
+                        <input type="text" name="department" required placeholder="Продажи"
+                            class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-4 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition font-medium">
+                    </div>
+                </div>
+
+                <!-- Size Selection -->
+                <div class="space-y-4">
+                    <label class="text-sm font-bold uppercase tracking-widest text-stone-500">Выберите размер</label>
+                    <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="size" value="XS" class="peer sr-only" required>
+                            <div
+                                class="h-14 rounded-xl border border-stone-200 flex items-center justify-center font-bold hover:bg-stone-50 peer-checked:bg-stone-900 peer-checked:text-white peer-checked:border-stone-900 transition">
+                                XS</div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="size" value="S" class="peer sr-only">
+                            <div
+                                class="h-14 rounded-xl border border-stone-200 flex items-center justify-center font-bold hover:bg-stone-50 peer-checked:bg-stone-900 peer-checked:text-white peer-checked:border-stone-900 transition">
+                                S</div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="size" value="M" class="peer sr-only">
+                            <div
+                                class="h-14 rounded-xl border border-stone-200 flex items-center justify-center font-bold hover:bg-stone-50 peer-checked:bg-stone-900 peer-checked:text-white peer-checked:border-stone-900 transition">
+                                M</div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="size" value="L" class="peer sr-only">
+                            <div
+                                class="h-14 rounded-xl border border-stone-200 flex items-center justify-center font-bold hover:bg-stone-50 peer-checked:bg-stone-900 peer-checked:text-white peer-checked:border-stone-900 transition">
+                                L</div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="size" value="XL" class="peer sr-only">
+                            <div
+                                class="h-14 rounded-xl border border-stone-200 flex items-center justify-center font-bold hover:bg-stone-50 peer-checked:bg-stone-900 peer-checked:text-white peer-checked:border-stone-900 transition">
+                                XL</div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="size" value="XXL" class="peer sr-only">
+                            <div
+                                class="h-14 rounded-xl border border-stone-200 flex items-center justify-center font-bold hover:bg-stone-50 peer-checked:bg-stone-900 peer-checked:text-white peer-checked:border-stone-900 transition">
+                                XXL</div>
+                        </label>
+                    </div>
+                    <div class="text-xs text-stone-400 text-center cursor-pointer hover:text-stone-600 underline"
+                        onclick="alert('Размерная сетка пока не подключена')">Таблица размеров</div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-sm font-bold uppercase tracking-widest text-stone-500">Комментарий (Рост,
+                        особенности)</label>
+                    <textarea name="comment" rows="2" placeholder="Например: Рост 192 см"
+                        class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-4 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition font-medium"></textarea>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-lime-400 text-stone-900 font-extrabold text-xl py-5 rounded-2xl hover:bg-lime-300 transition shadow-xl hover:shadow-lime-400/20 active:scale-[0.99] transform duration-200">
+                    Отправить размер
+                </button>
+
+            </form>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="successMessage"
+                class="hidden absolute inset-0 bg-white z-20 flex flex-col items-center justify-center text-center p-8">
+                <div class="w-20 h-20 bg-lime-400 rounded-full flex items-center justify-center mb-6 animate-blob">
+                    <i data-lucide="check" class="w-10 h-10 text-stone-900"></i>
+                </div>
+                <h3 class="text-3xl font-black mb-2">Спасибо!</h3>
+                <p class="text-stone-500 text-lg">Ваши данные сохранены.<br>Скоро вы получите свой мерч.</p>
+                <button onclick="window.location.reload()"
+                    class="mt-8 text-stone-400 hover:text-stone-900 text-sm font-bold uppercase tracking-widest transition">Отправить
+                    еще</button>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-8 text-stone-400 text-xs uppercase tracking-widest opacity-50">
+            Powered by Natural Advance
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // ВСТАВЬТЕ СЮДА ВАШУ ССЫЛКУ ИЗ GOOGLE APPS SCRIPT
+        const SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+
+        function submitSize(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+
+            btn.innerText = 'Отправка...';
+            btn.disabled = true;
+
+            const form = e.target;
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Важно для Google Forms/Scripts
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+                .then(() => {
+                    document.getElementById('sizeForm').classList.add('opacity-0', 'pointer-events-none');
+                    setTimeout(() => {
+                        document.getElementById('successMessage').classList.remove('hidden');
+                    }, 300);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Ошибка отправки. Попробуйте еще раз.');
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                });
+        }
+    </script>
+
+</body>
+
+</html>
